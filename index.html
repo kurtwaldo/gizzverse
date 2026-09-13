@@ -65,7 +65,7 @@
   .foot {
     flex: none;
     padding: 20px clamp(20px, 5vw, 56px) 28px;
-    display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between;
+    display: flex; flex-wrap: wrap; gap: 8px 24px;
     font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; color: var(--smoke-dim);
   }
   .foot p { max-width: none; }
@@ -107,7 +107,6 @@
 
 <footer class="foot">
   <p>A fan-made tribute. Not affiliated with the band. · Recordings via <a href="https://archive.org/details/KingGizzardAndTheLizardWizard">Internet Archive</a> · Lore via <a href="https://kglw.net">kglw.net</a></p>
-  <p>© 2026 Kurt Waldowski</p>
 </footer>
 
 <script>
@@ -119,8 +118,8 @@
   function size() {
     W = innerWidth; H = innerHeight; c.width = W * dpr; c.height = H * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    cx = W * 0.5; cy = H * 0.52;
-    R = Math.min(W, H) * 0.46;
+    cx = W * 0.5; cy = H * 0.5;
+    R = Math.min(W * 0.5, H * 0.5) * 0.82;
   }
   function draw(now) {
     var t = (now - t0) / 1000, rot = t * 0.03;
@@ -130,21 +129,21 @@
       var a = rot + i * Math.PI * 2 / 9 - Math.PI / 2;
       pts.push([cx + R * Math.cos(a), cy + R * Math.sin(a)]);
     }
-    ctx.lineWidth = 1;
     for (var i = 0; i < 9; i++) for (var j = i + 1; j < 9; j++) {
       var perim = (j - i === 1) || (i === 0 && j === 8);
-      ctx.strokeStyle = perim ? 'rgba(217,41,28,0.5)' : 'rgba(217,41,28,0.18)';
+      ctx.lineWidth = perim ? 1.4 : 1;
+      ctx.strokeStyle = perim ? 'rgba(217,41,28,0.6)' : 'rgba(217,41,28,0.12)';
       ctx.beginPath(); ctx.moveTo(pts[i][0], pts[i][1]); ctx.lineTo(pts[j][0], pts[j][1]); ctx.stroke();
     }
     var head = (t * 0.3) % 9, k = Math.floor(head), f = head - k, a = pts[k], b = pts[(k + 1) % 9];
     var px = a[0] + (b[0] - a[0]) * f, py = a[1] + (b[1] - a[1]) * f;
-    var g = ctx.createRadialGradient(px, py, 0, px, py, 40);
+    var g = ctx.createRadialGradient(px, py, 0, px, py, 14);
     g.addColorStop(0, 'rgba(255,106,77,0.8)'); g.addColorStop(1, 'rgba(255,106,77,0)');
-    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(px, py, 40, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(px, py, 14, 0, Math.PI * 2); ctx.fill();
     for (var i = 0; i < 9; i++) {
-      var h = ctx.createRadialGradient(pts[i][0], pts[i][1], 0, pts[i][0], pts[i][1], 18);
+      var h = ctx.createRadialGradient(pts[i][0], pts[i][1], 0, pts[i][0], pts[i][1], 12);
       h.addColorStop(0, 'rgba(217,41,28,0.6)'); h.addColorStop(1, 'rgba(217,41,28,0)');
-      ctx.fillStyle = h; ctx.beginPath(); ctx.arc(pts[i][0], pts[i][1], 18, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = h; ctx.beginPath(); ctx.arc(pts[i][0], pts[i][1], 12, 0, Math.PI * 2); ctx.fill();
       ctx.fillStyle = '#FF6A4D'; ctx.beginPath(); ctx.arc(pts[i][0], pts[i][1], 2.6, 0, Math.PI * 2); ctx.fill();
     }
     requestAnimationFrame(draw);
