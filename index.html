@@ -21,7 +21,7 @@
   .nav { flex: none; }
   canvas#nonagon {
     position: fixed; inset: 0; width: 100%; height: 100%;
-    pointer-events: none; z-index: 0; opacity: 0.55;
+    pointer-events: none; z-index: 0; opacity: 0.7;
   }
   .nav, .hero, .foot { position: relative; z-index: 1; }
 
@@ -132,7 +132,7 @@
     for (var i = 0; i < 9; i++) for (var j = i + 1; j < 9; j++) {
       var perim = (j - i === 1) || (i === 0 && j === 8);
       ctx.lineWidth = perim ? 1.4 : 1;
-      ctx.strokeStyle = perim ? 'rgba(217,41,28,0.6)' : 'rgba(217,41,28,0.12)';
+      ctx.strokeStyle = perim ? 'rgba(217,41,28,0.75)' : 'rgba(217,41,28,0.38)';
       ctx.beginPath(); ctx.moveTo(pts[i][0], pts[i][1]); ctx.lineTo(pts[j][0], pts[j][1]); ctx.stroke();
     }
     var head = (t * 0.3) % 9, k = Math.floor(head), f = head - k, a = pts[k], b = pts[(k + 1) % 9];
