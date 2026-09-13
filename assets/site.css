@@ -1,0 +1,99 @@
+/* Gizzverse — site styles. Dark only, per the app's design language: void + red. */
+:root {
+  --void: #000000;
+  --red-core: #D9291C;
+  --red-hot: #FF6A4D;
+  --red-dim: #571009;
+  --red-text: #F0463A;
+  --smoke: #E8E0D8;
+  --smoke-dim: #9B938C;
+  --glass: rgba(0, 0, 0, 0.55);
+  --display: "Unbounded", "Avenir Next", "Helvetica Neue", sans-serif;
+  --mono: "IBM Plex Mono", "SF Mono", Menlo, monospace;
+  --body: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --measure: 62ch;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { background: var(--void); }
+body {
+  margin: 0;
+  background: var(--void);
+  color: var(--smoke);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--red-text); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--red-hot); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--red-hot); outline-offset: 3px; }
+img { max-width: 100%; display: block; }
+
+.wordmark {
+  font-family: var(--display);
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--red-text);
+  text-decoration: none;
+  font-size: 13px;
+}
+.wordmark:hover { color: var(--red-hot); }
+
+.nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 22px clamp(20px, 5vw, 56px);
+}
+.nav-links { display: flex; gap: 28px; }
+.nav-links a {
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--smoke-dim); text-decoration: none;
+}
+.nav-links a:hover, .nav-links a[aria-current] { color: var(--red-text); }
+
+.tag {
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--red-text);
+}
+
+h1, h2, h3 { font-family: var(--display); font-weight: 500; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(30px, 5.2vw, 56px); line-height: 1.08; letter-spacing: -0.005em; color: var(--smoke); }
+h2 { font-size: clamp(22px, 3vw, 32px); line-height: 1.2; color: var(--smoke); }
+p { margin: 0; max-width: var(--measure); }
+.lede { font-size: clamp(18px, 2vw, 21px); color: var(--smoke-dim); }
+
+.store-btn {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 14px 22px; border-radius: 999px;
+  border: 1px solid var(--red-core);
+  background: var(--glass);
+  color: var(--smoke); text-decoration: none;
+  font-family: var(--display); font-weight: 500; font-size: 14px; letter-spacing: 0.04em;
+  box-shadow: 0 0 40px rgba(217, 41, 28, 0.18);
+  transition: box-shadow 200ms, border-color 200ms;
+}
+.store-btn:hover { border-color: var(--red-hot); color: var(--smoke); box-shadow: 0 0 60px rgba(255, 106, 77, 0.32); }
+.store-btn svg { width: 20px; height: 20px; fill: var(--smoke); }
+
+footer {
+  padding: 48px clamp(20px, 5vw, 56px) 56px;
+  border-top: 1px solid var(--red-dim);
+  display: grid; gap: 14px;
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; color: var(--smoke-dim);
+}
+footer p { max-width: none; }
+footer a { color: var(--smoke-dim); }
+footer a:hover { color: var(--red-text); }
+
+/* Document pages (support / privacy) */
+.doc { padding: 24px clamp(20px, 5vw, 56px) 96px; max-width: 760px; }
+.doc header { display: grid; gap: 12px; margin-bottom: 44px; }
+.doc section { display: grid; gap: 12px; margin-top: 40px; }
+.doc h2 { font-size: 20px; }
+.doc ul { margin: 0; padding-left: 22px; max-width: var(--measure); display: grid; gap: 8px; }
+.doc .contact {
+  margin-top: 8px; padding: 22px 24px; border: 1px solid var(--red-dim); border-radius: 14px;
+  display: grid; gap: 6px; max-width: 520px;
+}
+.doc .contact a { font-family: var(--display); font-weight: 500; font-size: 16px; }

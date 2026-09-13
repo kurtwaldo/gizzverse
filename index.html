@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gizzverse</title>
+<meta name="description" content="King Gizzard & The Lizard Wizard's live catalog as a nonagon universe you can fly through. Describe a vibe, fly to it, press play. Free on iPhone.">
+<meta property="og:title" content="Gizzverse">
+<meta property="og:description" content="King Gizzard's live catalog as a nonagon universe. Free on iPhone.">
+<meta property="og:image" content="https://gizzverse.app/assets/01-universe.png">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  .hero {
+    position: relative; overflow: hidden;
+    display: grid; grid-template-columns: 1fr; gap: 28px;
+    padding: 40px clamp(20px, 5vw, 56px) 72px;
+    min-height: 560px; align-content: center;
+  }
+  .hero canvas {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 0;
+  }
+  .hero > :not(canvas) { position: relative; z-index: 1; }
+  .hero-copy { display: grid; gap: 22px; max-width: 640px; }
+  .hero-copy h1 { max-width: 12ch; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
+  .hero-note { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; color: var(--smoke-dim); }
+
+  .features {
+    padding: 24px clamp(20px, 5vw, 56px) 40px;
+    display: grid; gap: 96px;
+  }
+  .feature {
+    display: grid; grid-template-columns: 1fr; gap: 36px; align-items: center;
+  }
+  @media (min-width: 820px) {
+    .feature { grid-template-columns: 1fr 1fr; gap: 64px; }
+    .feature:nth-child(even) .feature-copy { order: 2; }
+  }
+  .feature-copy { display: grid; gap: 14px; max-width: 460px; }
+  .feature-copy p { color: var(--smoke-dim); }
+  .feature-copy .example {
+    font-family: var(--mono); font-size: 14px; color: var(--red-text); letter-spacing: 0.02em;
+    padding-top: 6px;
+  }
+  .phone {
+    justify-self: center; width: min(320px, 78vw);
+    border-radius: 44px; overflow: hidden;
+    border: 1px solid var(--red-dim);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.9), 0 0 90px rgba(217, 41, 28, 0.14);
+  }
+  .phone img { width: 100%; }
+
+  .tribute {
+    margin: 64px clamp(20px, 5vw, 56px) 40px;
+    padding: 36px 0 0; border-top: 1px solid var(--red-dim);
+    display: grid; gap: 22px;
+  }
+  .credits {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px 32px;
+    max-width: 760px;
+  }
+  .credit { display: grid; gap: 6px; }
+  .credit span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red-text); }
+  .credit a, .credit b { font-weight: 400; font-size: 16px; color: var(--smoke); }
+  @media (prefers-reduced-motion: reduce) { .hero canvas { display: none; } .hero { background: radial-gradient(ellipse at 70% 50%, rgba(217,41,28,0.16), transparent 60%); } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="wordmark" href="/">Gizzverse</a>
+  <div class="nav-links">
+    <a href="/support/">Support</a>
+    <a href="/privacy/">Privacy</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <canvas id="nonagon" aria-hidden="true"></canvas>
+  <div class="hero-copy">
+    <span class="tag">King Gizzard &amp; The Lizard Wizard · live</span>
+    <h1>The live catalog as a nonagon universe.</h1>
+    <p class="lede">Every recording from every show, mapped by how it sounds. Describe a vibe, fly to it, press play.</p>
+    <div class="hero-actions">
+      <a class="store-btn" href="APP_STORE_URL">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.37 12.63c-.02-2.3 1.88-3.4 1.96-3.45-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.48.83-.72 0-1.83-.81-3-.79-1.55.02-2.97.9-3.77 2.28-1.6 2.78-.41 6.9 1.15 9.16.77 1.1 1.68 2.34 2.87 2.3 1.15-.05 1.59-.75 2.98-.75s1.79.75 3.01.72c1.24-.02 2.03-1.12 2.79-2.23.88-1.28 1.24-2.52 1.26-2.58-.03-.01-2.42-.93-2.45-3.69zM14.1 5.9c.63-.77 1.06-1.84.94-2.9-.91.04-2.02.61-2.67 1.37-.59.68-1.1 1.77-.96 2.81 1.02.08 2.05-.52 2.69-1.28z"/></svg>
+        Get it on the App Store
+      </a>
+      <span class="hero-note">Free · iPhone · No account, no tracking</span>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <article class="feature">
+    <div class="feature-copy">
+      <span class="tag">The universe</span>
+      <h2>Every song is a star.</h2>
+      <p>Songs that sound alike sit close together. Songs the band segues between live are linked. Drag to orbit, tap a star to hear it — a real recording from a real night — and follow the threads to the next one.</p>
+      <p class="example">129 shows · 2013 – 2026 · 2,000+ live takes</p>
+    </div>
+    <div class="phone"><img src="assets/01-universe.png" alt="The Gizzverse universe: a sphere of red stars connected by a web, with the song Altered Beast II selected." width="1000" height="2173" loading="lazy"></div>
+  </article>
+
+  <article class="feature">
+    <div class="feature-copy">
+      <span class="tag">Vibe search</span>
+      <h2>Don't know the name? Describe the sound.</h2>
+      <p>Gizzverse understands the feel of the music, not just the title, and flies you to the closest match. Search runs entirely on your phone.</p>
+      <p class="example">“slow doomy sludge at 3am” · “sunny boogie with a harmonica” · “microtonal freakout”</p>
+    </div>
+    <div class="phone"><img src="assets/05-vibe-search.png" alt="The vibe search field with the query 'Slow doomy sludge at 3am' typed in." width="1000" height="2173" loading="lazy"></div>
+  </article>
+
+  <article class="feature">
+    <div class="feature-copy">
+      <span class="tag">Every take</span>
+      <h2>Every night it was played.</h2>
+      <p>Open any song to see each version — venue, date, length — and pick the one you want. Lore and lyrics ride along from kglw.net. Keep playing with the screen locked; favorite the versions you'd argue about.</p>
+    </div>
+    <div class="phone"><img src="assets/04-song-takes.png" alt="The Grim Reaper song page listing seventeen live versions with dates and venues." width="1000" height="2173" loading="lazy"></div>
+  </article>
+</section>
+
+<section class="tribute">
+  <span class="tag">A fan tribute</span>
+  <p>Gizzverse is unofficial and fan-made, not affiliated with the band. Recordings stream from the Internet Archive's live music collection, where King Gizzard permit taping and sharing of their shows. Nothing is copied or re-hosted.</p>
+  <div class="credits">
+    <div class="credit"><span>Music</span><b>King Gizzard &amp; The Lizard Wizard</b></div>
+    <div class="credit"><span>Art</span><b>Jason Galea</b></div>
+    <div class="credit"><span>Lore &amp; setlists</span><a href="https://kglw.net">kglw.net</a></div>
+    <div class="credit"><span>Recordings</span><a href="https://archive.org/details/KingGizzardAndTheLizardWizard">Internet Archive</a></div>
+  </div>
+</section>
+
+<footer>
+  <p>No data is collected. No tracking. Ever. · <a href="/privacy/">Privacy</a> · <a href="/support/">Support</a></p>
+  <p>© 2026 Kurt Waldowski</p>
+</footer>
+
+<script>
+(function () {
+  var c = document.getElementById('nonagon');
+  if (!c || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var ctx = c.getContext('2d'), dpr = Math.min(devicePixelRatio || 1, 2);
+  var W, H, cx, cy, R, pts = [], t0 = performance.now();
+  function size() {
+    var r = c.getBoundingClientRect();
+    W = r.width; H = r.height; c.width = W * dpr; c.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    // Nonagon sits right of the copy on wide screens, behind it on narrow ones.
+    cx = W > 820 ? W * 0.72 : W * 0.5; cy = H * 0.5;
+    R = Math.min(W * (W > 820 ? 0.24 : 0.42), H * 0.42);
+  }
+  function draw(now) {
+    var t = (now - t0) / 1000, rot = t * 0.04;
+    ctx.clearRect(0, 0, W, H);
+    pts.length = 0;
+    for (var i = 0; i < 9; i++) {
+      var a = rot + i * Math.PI * 2 / 9 - Math.PI / 2;
+      pts.push([cx + R * Math.cos(a), cy + R * Math.sin(a)]);
+    }
+    // 36 edges of K9; a slow pulse travels the perimeter.
+    ctx.lineWidth = 1;
+    for (var i = 0; i < 9; i++) for (var j = i + 1; j < 9; j++) {
+      var perim = (j - i === 1) || (i === 0 && j === 8);
+      ctx.strokeStyle = perim ? 'rgba(217,41,28,0.55)' : 'rgba(217,41,28,0.22)';
+      ctx.beginPath(); ctx.moveTo(pts[i][0], pts[i][1]); ctx.lineTo(pts[j][0], pts[j][1]); ctx.stroke();
+    }
+    var head = (t * 0.35) % 9, k = Math.floor(head), f = head - k, a = pts[k], b = pts[(k + 1) % 9];
+    var px = a[0] + (b[0] - a[0]) * f, py = a[1] + (b[1] - a[1]) * f;
+    var g = ctx.createRadialGradient(px, py, 0, px, py, 34);
+    g.addColorStop(0, 'rgba(255,106,77,0.9)'); g.addColorStop(1, 'rgba(255,106,77,0)');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(px, py, 34, 0, Math.PI * 2); ctx.fill();
+    for (var i = 0; i < 9; i++) {
+      var h = ctx.createRadialGradient(pts[i][0], pts[i][1], 0, pts[i][0], pts[i][1], 16);
+      h.addColorStop(0, 'rgba(217,41,28,0.7)'); h.addColorStop(1, 'rgba(217,41,28,0)');
+      ctx.fillStyle = h; ctx.beginPath(); ctx.arc(pts[i][0], pts[i][1], 16, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#FF6A4D'; ctx.beginPath(); ctx.arc(pts[i][0], pts[i][1], 2.6, 0, Math.PI * 2); ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  size(); addEventListener('resize', size); requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>
